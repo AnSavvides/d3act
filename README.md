@@ -14,7 +14,7 @@ In recent months, there have been various approaches documented & implemented in
 
 `d3act` and the idea behind it was first presented at [ReactEurope 2015](https://www.react-europe.org/2015.html) as a five minute lightning talk; you can watch it [here](https://www.youtube.com/watch?v=6Pbf0n85HH8).
 
-## How does this improve the Developer Experience (DX)?
+## How does this improve DX?
 
 During the [keynote](https://www.youtube.com/watch?v=PAA9O4E1IM4) at ReactEurope 2015, [vjeux](https://twitter.com/vjeux) introduced the idea of DX (Developer Experience) - akin to UX (User Experience), but with a focus on enabling developers to build great UX with the best possible tools & technologies. Things like [Babel](babeljs.io), [Redux](https://github.com/gaearon/redux) and [Radium](https://github.com/FormidableLabs/radium) definitely tick the DX box.
 
