@@ -1,0 +1,44 @@
+{
+  "name": "d3act",
+  "version": "0.0.1",
+  "description": "Visualising data using d3 with React.js",
+  "main": "./lib/components/Chart.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run build"
+  },
+  "dist": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnSavvides/d3act.git"
+  },
+  "keywords": [
+    "d3",
+    "React",
+    "visualisations",
+    "data",
+    "svg"
+  ],
+  "author": "Andreas Savvides",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnSavvides/d3act/issues"
+  },
+  "homepage": "https://github.com/AnSavvides/d3act#readme",
+  "dependencies": {
+    "d3": "^3.5.5",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "^5.6.23",
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.2.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-webpack": "^1.0.10",
+    "load-grunt-tasks": "^3.2.0",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.10.0",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
