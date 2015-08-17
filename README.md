@@ -142,6 +142,10 @@ React.render(React.createElement(ExampleBubbleChart), document.getElementById('c
 
 ![Bar chart](bar.png)
 
+### How do I update charts?
+
+Just update your `data` state and all else is handled for you.
+
 ## What's next?
 
 - Improve API so that you can customise charts beyond just dimensions and margins
