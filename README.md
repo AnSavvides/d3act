@@ -155,7 +155,6 @@ Just update your `data` state and all else is handled for you.
 - Improve tooltips & make them more extensible
 - Make it possible to specify your own chart `d3` chart to use with `d3act`
 - Think about making expected data for each visualisation a little more uniform
-- Add [`eslint`](http://eslint.org/) to ensure code consistency
 - Add tests
 
 ## Is this the best way to combine `d3` and `React`?
@@ -165,6 +164,8 @@ This is one way of combining `d3` with `React`; there are plenty of other ways a
 ## Contributing
 
 All contributions are welcome; fork the repository, make your changes and open a pull request. Try to stick to the coding conventions that are already in place.
+
+To build things locally, you can just `grunt watch` from the project's root directory. This will also lint code using [ESLint](http://eslint.org/); if you would like to just lint the code, you could also just use `grunt lint`.
 
 ## License
 
