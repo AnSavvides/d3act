@@ -1,0 +1,14 @@
+{
+ "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "global-strict": 0
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "document": true,
+    "event": true
+  }
+}

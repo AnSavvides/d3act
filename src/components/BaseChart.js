@@ -1,5 +1,4 @@
 import d3 from "d3";
-import React from "react";
 
 export default class BaseChart {
     constructor(el, props) {
@@ -40,8 +39,8 @@ export default class BaseChart {
         const top = (event.pageY - 10);
         const left = (event.pageX + 10);
 
-        return this.tooltip
-            .style("top",  `${top}px`)
+        this.tooltip
+            .style("top", `${top}px`)
             .style("left", `${left}px`);
     }
 
@@ -50,7 +49,7 @@ export default class BaseChart {
             return;
         }
 
-        return this.tooltip.style("visibility", "hidden");
+        this.tooltip.style("visibility", "hidden");
     }
 
     // Overwrite this function to apply your own removal logic
@@ -58,11 +57,13 @@ export default class BaseChart {
         this.el.remove();
     }
 
-    create(data) {
-        // To be implemented by class extending BaseChart
+    create() {
+        // To be implemented by class extending BaseChart.
+        // `data` is passed as an argument to this function.
     }
 
-    update(data) {
-        // To be implemented by class extending BaseChart
+    update() {
+        // To be implemented by class extending BaseChart.
+        // `data` is passed as an argument to this function.
     }
 }

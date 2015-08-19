@@ -9,12 +9,14 @@ export default class Chart extends React.Component {
 
         this.chartToClassMappings = {
             bubble: BubbleChart,
-            bar: BarChart,
+            bar: BarChart
         };
     }
 
     componentDidMount() {
-        if (Object.keys(this.props.data).length === 0) return;
+        if (Object.keys(this.props.data).length === 0) {
+            return;
+        }
 
         const el = React.findDOMNode(this);
 

@@ -43,12 +43,18 @@ module.exports = function (grunt) {
                     atBegin: true
                 }
             }
+        },
+
+        eslint: {
+            target: ["./src/components/*.js"],
         }
 
     });
 
     grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.registerTask("build", ["webpack"]);
+    grunt.registerTask("lint", ["eslint"]);
+
+    grunt.registerTask("build", ["webpack", "eslint"]);
 
 };
