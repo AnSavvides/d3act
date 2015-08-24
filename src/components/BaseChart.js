@@ -1,12 +1,25 @@
 import d3 from "d3";
 
+const chartConfig = {
+    showTooltips: true,
+    transitionDuration: 1000
+};
+
 export default class BaseChart {
     constructor(el, props) {
         this.el = el;
         this.props = props;
         this.color = this.getColor();
-        this.showTooltips = this.props.showTooltips ? true : false;
-        this.transitionDuration = this.props.transitionDuration || 1000;
+
+        Object.keys(chartConfig).forEach(configKey => {
+            // If a prop is defined, let's just use it, otherwise
+            // fall back to the default.
+            if (this.props[configKey] !== undefined) {
+                this[configKey] = this.props[configKey];
+            } else {
+                this[configKey] = chartConfig[configKey];
+            }
+        });
     }
 
     // Overwrite this function to apply your own color scheme
