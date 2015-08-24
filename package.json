@@ -5,7 +5,8 @@
   "main": "./lib/components/Chart.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "examples": "npm run build && webpack-dev-server --config examples/webpack.config.js --no-info --content-base examples/"
   },
   "repository": {
     "type": "git",
