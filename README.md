@@ -48,6 +48,7 @@ Head to http://localhost:8080/ and see charts in action as below:
 
 ![Bubble chart](bubble.png)
 ![Bar chart](bar.png)
+![Pie chart](pie.png)
 
 ### How do I update charts?
 
