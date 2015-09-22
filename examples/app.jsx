@@ -35,6 +35,39 @@ class ExampleBarChart extends React.Component {
     }
 }
 
+class ExamplePieChart extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: {
+                "React": 2,
+                "Relay": 12,
+                "GraphQL": 5,
+                "Radium": 7,
+                "Babel": 5,
+            }
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Pie Chart</h2>
+                <Chart
+                    type={"pie"}
+                    width={300}
+                    height={300}
+                    showTooltips={true}
+                    data={this.state.data}
+                />
+            </div>
+        );
+    }
+
+}
+
 class ExampleBubbleChart extends React.Component {
 
     constructor(props) {
@@ -90,6 +123,7 @@ class App extends React.Component {
         return (
             <div>
                 <ExampleBarChart />
+                <ExamplePieChart />
                 <ExampleBubbleChart />
             </div>
         );
