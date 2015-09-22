@@ -2,6 +2,7 @@ import React from "react";
 
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
+import PieChart from "./PieChart";
 
 export default class Chart extends React.Component {
     constructor(props) {
@@ -9,7 +10,8 @@ export default class Chart extends React.Component {
 
         this.chartToClassMappings = {
             bubble: BubbleChart,
-            bar: BarChart
+            bar: BarChart,
+            pie: PieChart
         };
     }
 
