@@ -2,7 +2,8 @@ import d3 from "d3";
 
 const chartConfig = {
     showTooltips: true,
-    transitionDuration: 1000
+    transitionDuration: 1000,
+    innerRadius: 0
 };
 
 export default class BaseChart {

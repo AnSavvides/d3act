@@ -33,7 +33,7 @@ export default class PieChart extends BaseChart {
 
         this.arc = d3.svg.arc()
             .outerRadius(radius - 10)
-            .innerRadius(0);
+            .innerRadius(this.props.innerRadius);
 
         this.pie = d3.layout.pie()
             .sort(null)
