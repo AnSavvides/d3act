@@ -1,4 +1,5 @@
 import d3 from "d3";
+import React from "react";
 
 const chartConfig = {
     showTooltips: true,
@@ -6,8 +7,10 @@ const chartConfig = {
     innerRadius: 0
 };
 
-export default class BaseChart {
+export default class BaseChart extends React.Component {
     constructor(el, props) {
+        super(props);
+
         this.el = el;
         this.props = props;
         this.color = this.getColor();
