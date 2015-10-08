@@ -1,4 +1,5 @@
 import React from "react";
+import { render } from "react-dom";
 
 import Chart from "../lib/components/Chart";
 
@@ -165,4 +166,4 @@ class App extends React.Component {
     }
 }
 
-React.render(<App />, document.getElementById("app"));
+render(<App />, document.getElementById("app"));

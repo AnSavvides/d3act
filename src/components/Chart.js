@@ -1,4 +1,5 @@
 import React from "react";
+import { findDOMNode } from "react-dom";
 
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
@@ -20,7 +21,7 @@ export default class Chart extends React.Component {
             return;
         }
 
-        const el = React.findDOMNode(this);
+        const el = findDOMNode(this);
 
         this.chart = new this.chartToClassMappings[this.props.type](el, this.props);
         this.chart.create(this.props.data);
