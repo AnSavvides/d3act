@@ -47,15 +47,17 @@ export default class PieChart extends BaseChart {
 
         this.path = this.svg.selectAll("path")
             .data(this.pie(d3.entries(data)))
-            .enter().append("path")
-                .attr("fill", (d, i) => { return this.color(i); })
-                .attr("d", this.arc)
-                .each(d => {
-                    // Let's keep a reference to the
-                    // original angles to make use of
-                    // in our arcTween helper.
-                    this._originalAngles = d;
-                })
+            .enter().append("path");
+
+        this.path
+            .attr("fill", (d, i) => { return this.color(i); })
+            .attr("d", this.arc)
+            .each(d => {
+                // Let's keep a reference to the
+                // original angles to make use of
+                // in our arcTween helper.
+                this._originalAngles = d;
+            })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this));
@@ -70,5 +72,20 @@ export default class PieChart extends BaseChart {
             .data(this.pie(d3.entries(data)))
             .transition().duration(this.transitionDuration)
             .attrTween("d", this.arcTween.bind(this));
+
+        this.path
+            .data(this.pie(d3.entries(data)))
+            .enter().append("path")
+            .attr("fill", (d, i) => { return this.color(i); })
+            .attr("d", this.arc)
+            .each(d => {
+                // Let's keep a reference to the
+                // original angles to make use of
+                // in our arcTween helper.
+                this._originalAngles = d;
+            })
+            .on("mouseover", this.onMouseOver.bind(this))
+            .on("mousemove", this.onMouseMove.bind(this))
+            .on("mouseout", this.onMouseOut.bind(this));
     }
 }
