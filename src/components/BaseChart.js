@@ -35,7 +35,7 @@ export default class BaseChart extends React.Component {
     addTooltips() {
         this.tooltip = d3.select(this.el)
             .append("div")
-            .classed("tooltip", true)
+            .classed("d3act-tooltip", true)
             .style("position", "absolute")
             .style("z-index", "10")
             .style("visibility", "hidden")
