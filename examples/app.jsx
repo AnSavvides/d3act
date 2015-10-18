@@ -95,6 +95,7 @@ class ExampleDonutChart extends React.Component {
                     height={300}
                     innerRadius={100}
                     showTooltips={true}
+                    showLegend={true}
                     data={this.state.data}
                 />
             </div>
