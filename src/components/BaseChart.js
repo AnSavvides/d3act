@@ -4,7 +4,8 @@ import React from "react";
 const chartConfig = {
     showTooltips: true,
     transitionDuration: 1000,
-    innerRadius: 0
+    innerRadius: 0,
+    showLegend: false
 };
 
 export default class BaseChart extends React.Component {
