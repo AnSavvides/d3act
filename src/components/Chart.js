@@ -23,7 +23,12 @@ export default class Chart extends React.Component {
 
         const el = findDOMNode(this);
 
-        this.chart = new this.chartToClassMappings[this.props.type](el, this.props);
+        if (this.props.type === "custom") {
+            this.chart = new this.props.customChart(el, this.props);
+        } else {
+            this.chart = new this.chartToClassMappings[this.props.type](el, this.props);
+        }
+
         this.chart.create(this.props.data);
     }
 
