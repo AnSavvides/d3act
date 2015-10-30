@@ -1,3 +1,4 @@
+import d3 from "d3";
 import React from "react";
 import { render } from "react-dom";
 
@@ -154,6 +155,89 @@ class ExampleBubbleChart extends React.Component {
     }
 }
 
+class SomeCustomChart {
+    constructor(el, props) {
+        this.el = el;
+        this.props = props;
+    }
+
+    getColor() {
+        return d3.scale.category20c();
+    }
+
+    create(data) {
+        const width = 400;
+        const height = 400;
+
+        const color = this.getColor();
+
+        const radius = Math.min(width, height) / 2;
+        const halfWidth = width / 2;
+        const halfHeight = height / 2;
+
+        const arc = d3.svg.arc()
+            .outerRadius(radius - 10);
+
+        const pie = d3.layout.pie()
+            .sort(null)
+            .value(d => { return d.value; });
+
+        const svg = d3.select(this.el).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+                .attr("transform", `translate(${halfWidth}, ${halfHeight})`);
+
+        const path = svg.selectAll("path")
+            .data(pie(d3.entries(data)))
+            .enter().append("path");
+
+        path
+            .attr("fill", (_d, i) => { return color(i); })
+            .attr("d", arc);
+    }
+
+    update() {
+        // We don't want to do anything with
+        // updates in this instance.
+    }
+
+    unmount() {
+        this.el.remove();
+    }
+}
+
+class ExampleCustomChart extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: {
+                "React": 2,
+                "Relay": 12,
+                "GraphQL": 5,
+                "Radium": 7,
+                "Babel": 5,
+            }
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Custom Chart</h2>
+                <Chart
+                    type={"custom"}
+                    customChart={SomeCustomChart}
+                    data={this.state.data}
+                />
+            </div>
+        );
+    }
+
+}
+
 class App extends React.Component {
     render() {
         return (
@@ -162,6 +246,7 @@ class App extends React.Component {
                 <ExamplePieChart />
                 <ExampleDonutChart />
                 <ExampleBubbleChart />
+                <ExampleCustomChart />
             </div>
         );
     }
