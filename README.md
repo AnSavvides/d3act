@@ -60,7 +60,6 @@ Just update your `data` state and all else is handled for you.
 - Better error handling
 - Manage state better
 - Improve tooltips & make them more extensible
-- Make it possible to specify your own chart `d3` chart to use with `d3act`
 - Think about making expected data for each visualisation a little more uniform
 - Add tests
 
