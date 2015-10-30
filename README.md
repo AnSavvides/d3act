@@ -37,6 +37,61 @@ npm install d3act
 
 ### Examples
 
+#### It's as simple as...
+
+```js
+<Chart
+    type={"pie"}
+    width={300}
+    height={300}
+    showTooltips={true}
+    data={
+        {
+            "React": 2,
+            "Relay": 12,
+            "GraphQL": 5,
+        }
+    }
+/>
+```
+
+#### ...and you can use already existing charts
+
+Ensure your existing charts have `constructor`, `create`, `update` and `unmount` functions.
+
+```js
+class PreExistingChart {
+    constructor(el, props) {
+        this.el = el;
+        this.props = props;
+    }
+
+    create(data) {
+        // Create your chart
+    }
+
+    update(data) {
+        // Update your chart
+    }
+
+    unmount() {
+        this.el.remove();
+    }
+}
+
+<Chart
+    type={"custom"}
+    customChart={PreExistingChart}
+    data={
+        {
+            "React": 2,
+            "Relay": 12,
+            "GraphQL": 5,
+        }
+    }
+/>
+```
+
 To see examples in action locally:
 
 ```bash
