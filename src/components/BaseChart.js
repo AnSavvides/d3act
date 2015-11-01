@@ -54,8 +54,8 @@ export default class BaseChart extends React.Component {
             return;
         }
 
-        const top = (event.pageY - 10);
-        const left = (event.pageX + 10);
+        const top = (d3.event.pageY - 10);
+        const left = (d3.event.pageX + 10);
 
         this.tooltip
             .style("top", `${top}px`)
