@@ -10,8 +10,8 @@ export default class PieChart extends BaseChart {
     // correctly generate all those previously invalid
     // values.
     arcTween(a) {
-        var interpolated = d3.interpolate(this._originalAngles, a);
-        this._originalAngles = interpolated(0);
+        var interpolated = d3.interpolate(this.originalAngles, a);
+        this.originalAngles = interpolated(0);
 
         return t => {
             return this.arc(interpolated(t));
@@ -106,7 +106,7 @@ export default class PieChart extends BaseChart {
                 // Let's keep a reference to the
                 // original angles to make use of
                 // in our arcTween helper.
-                this._originalAngles = d;
+                this.originalAngles = d;
             })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
@@ -136,7 +136,7 @@ export default class PieChart extends BaseChart {
                 // Let's keep a reference to the
                 // original angles to make use of
                 // in our arcTween helper.
-                this._originalAngles = d;
+                this.originalAngles = d;
             })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
