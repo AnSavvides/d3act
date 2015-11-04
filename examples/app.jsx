@@ -20,6 +20,20 @@ class ExampleBarChart extends React.Component {
         };
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                data: [
+                    { xValue: "React", yValue: 2 },
+                    { xValue: "Relay", yValue: 8 },
+                    { xValue: "GraphQL", yValue: 15 },
+                    { xValue: "Radium", yValue: 27 },
+                    { xValue: "Babel", yValue: 5 },
+                ]      
+            })
+        }, 3000);
+    }
+
     render() {
         return (
             <div>
