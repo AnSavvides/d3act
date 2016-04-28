@@ -27,8 +27,8 @@
   "homepage": "https://github.com/AnSavvides/d3act#readme",
   "dependencies": {
     "d3": "^3.5.5",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
   },
   "devDependencies": {
     "babel": "^5.6.23",
