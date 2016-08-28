@@ -1,4 +1,4 @@
-import d3 from "d3";
+import * as d3 from "d3";
 import BaseChart from "./BaseChart";
 
 export default class BubbleChart extends BaseChart {
@@ -11,21 +11,22 @@ export default class BubbleChart extends BaseChart {
             .text(this.setText);
     }
 
-    setText(d) {
-        if (d.value > 15) { return d.name; }
+    setText(node) {
+        if (node.data.value > 15) { return node.data.name; }
     }
 
-    onMouseOver(d) {
+    onMouseOver(node) {
         return this.tooltip
             .style("visibility", "visible")
-            .text(`${d.name} (${d.value})`);
+            .text(`${node.data.name} (${node.data.value})`);
     }
 
     create(data) {
-        this.bubble = d3.layout.pack()
-            .sort(null)
+        this.bubble = d3.pack()
             .size([this.props.diameter, this.props.diameter])
             .padding(1.5);
+
+        this.root = d3.hierarchy(data).sum(nodeData => nodeData.value);
 
         this.svg = d3.select(this.el).append("svg")
             .attr("width", this.props.diameter)
@@ -33,14 +34,14 @@ export default class BubbleChart extends BaseChart {
             .attr("class", "bubble");
 
         this.node = this.svg.selectAll(".node")
-            .data(this.bubble.nodes(data).filter(d => { return !d.children; }))
+            .data(this.bubble(this.root).children)
             .enter().append("g")
                 .attr("class", "node")
                 .attr("transform", d => { return `translate(${d.x}, ${d.y})`; });
 
         this.node.append("circle")
-            .attr("r", d => { return d.r; })
-            .style("fill", d => { return this.color(d.name); })
+            .attr("r", node => { return node.r; })
+            .style("fill", node => { return this.color(node.data.name); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this));
@@ -55,7 +56,7 @@ export default class BubbleChart extends BaseChart {
     }
 
     update(data) {
-        const formattedData = this.bubble.nodes(data).filter(d => { return !d.children; });
+        const formattedData = this.bubble(this.root).children;
 
         this.node = this.svg.selectAll(".node")
             .data(formattedData);

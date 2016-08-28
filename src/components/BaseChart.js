@@ -1,4 +1,4 @@
-import d3 from "d3";
+import * as d3 from "d3";
 
 const chartConfig = {
     showTooltips: true,
@@ -26,7 +26,7 @@ export default class BaseChart {
 
     // Overwrite this function to apply your own color scheme
     getColor() {
-        return d3.scale.category20c();
+        return d3.scaleOrdinal(d3.schemeCategory20c);
     }
 
     // We don't show tooltips by default
