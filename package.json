@@ -1,6 +1,6 @@
 {
   "name": "d3act",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Visualising data using d3 with React.js",
   "main": "./lib/components/Chart.js",
   "scripts": {
