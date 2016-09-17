@@ -1,4 +1,4 @@
-import d3 from "d3";
+import * as d3 from "d3";
 import React from "react";
 import { render } from "react-dom";
 
@@ -29,7 +29,7 @@ class ExampleBarChart extends React.Component {
                     { xValue: "GraphQL", yValue: 15 },
                     { xValue: "Radium", yValue: 27 },
                     { xValue: "Babel", yValue: 5 },
-                ]      
+                ]
             })
         }, 3000);
     }
@@ -176,7 +176,7 @@ class SomeCustomChart {
     }
 
     getColor() {
-        return d3.scale.category20c();
+        return d3.scaleOrdinal(d3.schemeCategory20c);
     }
 
     create(data) {
@@ -189,10 +189,11 @@ class SomeCustomChart {
         const halfWidth = width / 2;
         const halfHeight = height / 2;
 
-        const arc = d3.svg.arc()
-            .outerRadius(radius - 10);
+        const arc = d3.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(0);
 
-        const pie = d3.layout.pie()
+        const pie = d3.pie()
             .sort(null)
             .value(d => { return d.value; });
 

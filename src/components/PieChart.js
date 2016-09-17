@@ -1,4 +1,4 @@
-import d3 from "d3";
+import * as d3 from "d3";
 import BaseChart from "./BaseChart";
 
 export default class PieChart extends BaseChart {
@@ -81,11 +81,11 @@ export default class PieChart extends BaseChart {
         const halfWidth = width / 2;
         const halfHeight = height / 2;
 
-        this.arc = d3.svg.arc()
+        this.arc = d3.arc()
             .outerRadius(radius - 10)
-            .innerRadius(this.props.innerRadius);
+            .innerRadius(this.innerRadius);
 
-        this.pie = d3.layout.pie()
+        this.pie = d3.pie()
             .sort(null)
             .value(d => { return d.value; });
 
