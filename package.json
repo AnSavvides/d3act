@@ -1,6 +1,6 @@
 {
   "name": "d3act",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Visualising data using d3 with React.js",
   "main": "./lib/components/Chart.js",
   "scripts": {
@@ -27,8 +27,8 @@
   "homepage": "https://github.com/AnSavvides/d3act#readme",
   "dependencies": {
     "d3": "^4.2.2",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "devDependencies": {
     "babel": "^5.6.23",
